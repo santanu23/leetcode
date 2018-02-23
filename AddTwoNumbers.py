@@ -11,9 +11,9 @@ class Solution:
         :type l2: ListNode
         :rtype: ListNode
         """
-        list1 = self._linkedListToNumber(l1)
-        list2 = self._linkedListToNumber(l2)
-        return self._numberToLinkedList(list1+list2)
+        number1 = self._linkedListToNumber(l1)
+        number2 = self._linkedListToNumber(l2)
+        return self._numberToLinkedList(number1+number2)
         
     def _linkedListToNumber(self,linked_list):
         res = []
