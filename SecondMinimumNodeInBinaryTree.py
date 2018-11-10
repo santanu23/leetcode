@@ -11,9 +11,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        lowest = float('inf')
-        second_lowest = float('inf')
-        res = self.dfs(root,lowest,second_lowest)
+        res = self.dfs(root)
 
         if res == float('inf'):
             return -1
@@ -21,7 +19,7 @@ class Solution(object):
         return res
         
         
-    def dfs(self, root, lowest, second_lowest):
+    def dfs(self, root, lowest=float('inf'), second_lowest=float('inf')):
         if not root:
             return second_lowest
 
@@ -31,7 +29,7 @@ class Solution(object):
         if root.val < lowest:
             lowest = root.val
 
-        second_lowest_left = self.dfs(root.left, lowest, second_lowest,)
-        second_lowest_right = self.dfs(root.right, lowest, second_lowest)
-
-        return min(second_lowest_left, second_lowest_right)
+        return min(
+            self.dfs(root.left, lowest, second_lowest),
+            self.dfs(root.right, lowest, second_lowest)
+        )
