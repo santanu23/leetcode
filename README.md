@@ -2,4 +2,5 @@
 
 Questions to review again:
   
-  -longest palindromic subsequence
+  -longest palindromic subsequence (dp)
+  -word ladder (graph)
